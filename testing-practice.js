@@ -39,8 +39,14 @@ export function caesarCipher(str, shiftFactor) {
   return result;
 }
 
+function isNumericArray(array) {
+  return array.every(Number.isInteger);
+}
+
 export function analyzeArray(array) {
-  if (array.length < 1) return undefined;
+  if (array.length < 1) return 'Array must not be empty';
+  if (!isNumericArray(array)) return 'Array must only contain numbers';
+
   return {
     average: array.reduce((acc, curr) => acc + curr, 0) / array.length,
     min: Math.min(...array),

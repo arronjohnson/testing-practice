@@ -27,7 +27,9 @@ it('caesarCipher — mixed case', () => expect(caesarCipher('Caesar', 5)).toBe('
 it('caesarCipher — modulo', () => expect(caesarCipher('z', 1)).toBe('a'));
 it('caesarCipher — punctuation', () => expect(caesarCipher('@_- !', 1)).toBe('@_- !'));
 
-it('analyzeArray — empty array', () => expect(analyzeArray([])).toBeUndefined());
+it('analyzeArray — empty array', () => expect(analyzeArray([])).toBe('Array must not be empty'));
+it('analyzeArray — non-numeric', () =>
+  expect(analyzeArray([1, 2, 3, 'a', 'b', 'c'])).toBe('Array must only contain numbers'));
 it('analyzeArray — array of length 1', () =>
   expect(analyzeArray([1])).toStrictEqual({
     average: 1,
